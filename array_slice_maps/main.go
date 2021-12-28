@@ -37,3 +37,24 @@ func reverseArray(a []int32) []int32 {
 	}
 	return a
 }
+
+// Link: https://www.hackerrank.com/challenges/find-the-median/problem
+// This is not the best answer, If I find time, I will resolve this problem again
+func FindMedian(arr []int32) int32 {
+	SortSlice(arr)
+	return arr[len(arr)/2]
+}
+
+func SortSlice(n []int32) {
+	var i = 1
+	for i < len(n) {
+		var j = i
+		for j >= 1 && n[j] < n[j-1] {
+			n[j], n[j-1] = n[j-1], n[j]
+
+			j--
+		}
+
+		i++
+	}
+}
